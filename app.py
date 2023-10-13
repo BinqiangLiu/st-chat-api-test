@@ -1,18 +1,27 @@
 from flask import Flask, request, jsonify
-from pathlib import Path
 import streamlit as st
+from langchain import PromptTemplate, LLMChain
+from langchain.memory import StreamlitChatMessageHistory
 from streamlit_chat import message
-from huggingface_hub import InferenceClient
+import numpy as np
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from langchain.memory import ConversationBufferMemory
+from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
+from streamlit.components.v1 import html
 from langchain import HuggingFaceHub
-import requests# Internal usage
 import os
 from dotenv import load_dotenv
-from time import sleep
+load_dotenv()
+from pathlib import Path
+from huggingface_hub import InferenceClient
+from langchain import HuggingFaceHub
+import requests
+#from time import sleep
 import uuid
 import sys
 from streamlit_extras.colored_header import colored_header
 from streamlit_extras.add_vertical_space import add_vertical_space
-from langchain import PromptTemplate, LLMChain
 
 st.set_page_config(page_title="AI Chatbot 100% Free", layout="wide")
 st.write('完全开源免费的AI智能聊天助手 | Absolute Free & Opensouce AI Chatbot')
