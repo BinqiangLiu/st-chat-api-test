@@ -84,28 +84,28 @@ def chat():
     myprompt = data['user_question']
     temp_myprompt=myprompt
 #if myprompt := st.chat_input("Enter your question here."):    
-    st.session_state.messages.append({"role": "user", "content": myprompt})    
+    st.session_state.messages.append({"role": "user", "content": myprompt}) 
+    #with st.spinner("AI Thinking..."):   
 #    with st.chat_message("user", avatar=av_us):
     with st.chat_message("user"):        
-        st.markdown(myprompt)        
+        #st.markdown(myprompt)        
         usertext = f"user: {myprompt}"              
         contexts = writehistory(usertext)          
     with st.chat_message("assistant"):
-        with st.spinner("AI Thinking..."):                        
-            message_placeholder = st.empty() 
-            full_response = ""            
-            res = starchat(repo_id, myprompt)       
-            response = res.split(" ")            
-            for r in response:
-                full_response = full_response + r + " "
-                message_placeholder.markdown(full_response + "|")
-                sleep(0.1)                       
-            message_placeholder.markdown(full_response)            
-            asstext = f"assistant: {full_response}"             
-            contexts = writehistory(asstext)            
-            st.session_state.messages.append({"role": "assistant", "content": full_response})
+        #message_placeholder = st.empty()
+        full_response = ""
+        res = starchat(repo_id, myprompt)
+        response = res.split(" ")
+        for r in response:
+            full_response = full_response + r + " "
+            #message_placeholder.markdown(full_response + "|")
+            #sleep(0.1)                       
+        #message_placeholder.markdown(full_response)            
+        asstext = f"assistant: {full_response}"  
+        contexts = writehistory(asstext)
+        st.session_state.messages.append({"role": "assistant", "content": full_response})
     return jsonify({"response": "API TEST"})
-
+#with st.spinner("AI Thinking..."):   
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)
 #    app.run(host='0.0.0.0')
