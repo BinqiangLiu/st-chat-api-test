@@ -1,0 +1,13 @@
+streamlit
+huggingface_hub
+langchain
+Requests
+python-dotenv
+altair
+streamlit_chat
+streamlit_extras
+flask
+gunicorn
+uvicorn
+#gunicorn py_file_name:api_name
+#uvicorn py_file_name:api_name
