@@ -63,16 +63,16 @@ def writehistory(text):
     return contexts
 
 if "messages" not in st.session_state:
-   st.session_state.messages = []
-for message in st.session_state.messages:
-   if message["role"] == "user":
+    st.session_state.messages = []
+#for message in st.session_state.messages:
+#   if message["role"] == "user":
 #      with st.chat_message(message["role"],avatar=av_us):
-      with st.chat_message(message["role"]):                  
-           st.markdown(message["content"])           
-   else:
+#      with st.chat_message(message["role"]):                  
+#           st.markdown(message["content"])           
+#   else:
 #       with st.chat_message(message["role"],avatar=av_ass):
-       with st.chat_message(message["role"]):                   
-           st.markdown(message["content"])           
+#       with st.chat_message(message["role"]):                   
+#           st.markdown(message["content"])           
 
 temp_myprompt = st.chat_input("Enter your question here.")
 
